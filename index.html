@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>微信小程序| 我奋斗去了</title>
+    <meta name=keywords content="微信, 小程序, 组件化, ES6, ES7, Promise">
+    <meta name="description"
+          content="小程序组，运维助手">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- favicon.ico in the root directory -->
+    <link rel="stylesheet" href="./css/main.css">
+    <link href="https://cdn.bootcss.com/aplayer/1.4.8/APlayer.min.css" rel="stylesheet">
+    <meta property="og:title" content="小程序组件化开发框架">
+</head>
+<body class="shown">
+<div class="container-wrap" id="app">
+    <div class="container">
+        <div class="slides">
+            <div class="slide slide--one">
+                <div class="slide__inner">
+                    <div class="header">
+                        <div class="header__inner">
+                            <a class="logo" href="/">
+                                <span class="logo__icon"></span>
+                                <div class="logo_text">
+                                    <span class="logo__title">我奋斗去了</span>
+                                    <span class="logo__description"><span> </span>摇滚码农（RockCode）</span>
+                                </div>
+                            </a>
+
+                            <div class="nav">
+                                <a class="nav__item nav__item--home" href="#/">首页</a>
+                                <a class="nav__item nav__item--document" target="_blank" href="./document.html">使用手册</a>
+                                <a class="nav__item nav__item--api" target="_blank"
+                                   href="./document.html#/api">API 说明</a>
+                                <a class="nav__item nav__item--logs" target="_blank" href="./document.html#/changelog">版本日志</a>
+                                <a class="nav__item nav__item--donate" href="./donate.html">打赏</a>
+                            </div>
+
+                            <div class="shares">
+                                <ul class="social-links">
+                                    <li class="social-link social-link--wx tooltip tooltip--indis">
+                                        <a href="#" @mouseenter="wxEnter"></a>
+                                    </li>
+                                    <li class="social-link social-link--gh">
+                                        <a href="https://github.com/baipeng1009472720" target="_blank"></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tagline">
+                        <h2 class="tagline__title">微信小程序开发爱好者</h2>
+                        <div class="tagline__body">热爱摇滚乐，旅行，技术宅的码农.</div>
+                        <div class="tagline__button">
+                            <a class="button button--secondary" href="./document.html">从这里开始</a>
+                        </div>
+                        <!--<div class="tagline__shieds">-->
+                        <!--<div class="tagline__shieds&#45;&#45;social">-->
+                        <!--<a><img src="https://img.shields.io/github/forks/wepyjs/wepy.svg?style=social&label=Fork"></a>-->
+                        <!--<a><img src="https://img.shields.io/github/stars/wepyjs/wepy.svg?style=social&label=Star"></a>-->
+                        <!--<a><img src="https://img.shields.io/github/watchers/wepyjs/wepy.svg?style=social&label=Watch"></a>-->
+                        <!--</div>-->
+                        <!--</div>-->
+                        <div class="tagline__footer">
+                            <div class="tagline__footer-inner">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slide slide--features">
+                <div class="slide__inner">
+                    <div class="section section--enter">
+                        <h2 class="title">我喜欢的音乐</h2>
+                        <div class="text">
+                            <p>
+                            </p>
+                        </div>
+
+                        <div class="features">
+
+
+                            <!-- 模块化开发下使用 <APlayer /> -->
+                            <a-player
+                                    ref="aplayer"
+                                    :narrow="narrow"
+                                    :autoplay="autoplay"
+                                    :showlrc="showlrc"
+                                    :mutex="mutex"
+                                    :fold="fold"
+                                    :speed="speed"
+                                    :theme="theme"
+                                    :mode="mode"
+                                    :preload="preload"
+                                    :listmaxheight="listmaxheight"
+                                    :music="music"
+                                    @play="getLyricAsync"
+                            ></a-player>
+                            <!--<button @click="aplayer.toggle()">toggle play (current: {{ aplayer ? aplayer.status :-->
+                            <!--'play' }})-->
+                            <!--</button>-->
+                            <!--<button @click="aplayer.toggleVolume()">toggle volume (current: {{ aplayer ?-->
+                            <!--aplayer.volume : 1 }})-->
+                            <!--</button>-->
+                            <!--<button @click="narrow = !narrow">switch narrow (current: {{ narrow }})</button>-->
+                            <!--<button @click="showlrc = !showlrc">switch showlrc (current: {{ showlrc }})</button>-->
+                            <!--<button @click="fold = !fold">switch fold (current: {{ fold }})</button>-->
+                            <!--<button @click="speed = (speed * 1000 + 0.1 * 1000) / 1000">change speed (current: {{-->
+                            <!--speed }})-->
+                            <!--</button>-->
+                            <!--<button @click="aplayer.togglePlayMode()">change mode (current: {{ aplayer ?-->
+                            <!--aplayer.playMode : mode }})-->
+                            <!--</button>-->
+                            <!--<button @click="listmaxheight = Number.parseInt(listmaxheight) + 33 + 'px'">change-->
+                            <!--listmaxheight (current: {{ listmaxheight }})-->
+                            <!--</button>-->
+                            <!--<button @click="music.splice(0, 1)">delete music (count: {{ music.length }})</button>-->
+                            <!--<button @click="fold = false; music.reverse()">sort music</button>-->
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slide slide--examples slide--shown">
+                <div class="slide__inner">
+                    <div class="slide__header">
+                        <h2 class="slide__title">我做的那些小玩意</h2>
+                        <p class="slide__description">
+                            <span v-for="item in textCases" style="display: none" v-show="textCases.length">
+                                <a class="cases" :href="item.link ? item.link : 'javascript:;'"
+                                   :class="{'islink': item.link}">{{item.name}}</a>
+                                <a class="opensource cases islink"
+                                   :href="item.opensource ? item.opensource : 'javascript:;'" v-show="item.opensource">（开源）</a>、
+                            </span>
+                            ...
+                        </p>
+                        <div class="examples__pr">
+                            <a class="button button--pr" href="https://github.com/Tencent/wepy/tree/master/docs/data"
+                               target="_blank">
+                                <strong style="font-size: 20px;">+</strong> 定制开发</a>
+                        </div>
+                    </div>
+
+                    <!-- 应用案例 -->
+                    <div class="examples carousel">
+                        <a href="" target="_blank" class="example carousel-cell" v-for="item in rollCases"
+                           style="display: none" v-show="rollCases.length">
+                            <div class="example__inner">
+                                <h3 class="example__title" v-text="item.name"></h3>
+                                <div class="example__image"
+                                     :style="{ backgroundImage: 'url(\'' + item.qrcode + '\')'}"></div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="slide__footer"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-container" :class="isQrShow ? 'active' : ''" @click="modalClick">
+        <div class="qr-modal">
+            <div style="padding: 10px;">
+                摇滚码农技术交流圈，扫码关注微信公众号（摇滚码农）加好友， 按照指引进群，一起噪起来吧。
+            </div>
+            <img style="width: 200px;" src="img/qrcode.png">
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+    <div class="footer-inner">
+        <div class="footer--copyright">
+            Copyright © 2017 THL A29 Limited a RockCode company All rights reserved
+        </div>
+    </div>
+</div>
+<script src="js/flickity.pkgd.min.js"></script>
+<script src="js/prism.js"></script>
+<script src="https://unpkg.com/vue"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+<script src=" https://unpkg.com/vue-aplayer-plugin@1.0.0"></script>
+<script>
+    var calcWeight = function (item) {
+        var weight = 0;
+        (item.email) && (weight += 10);
+        (item.company) && (weight += 20);
+        (item.link) && (weight += 50);
+        (item.qrcode) && (weight += 100);
+        (item.opensource) && (weight += 500);
+        (item.company === '我奋斗去了') && (weight += 1000);
+        var nameWeight = '0.' + parseInt(encodeURIComponent(item.name).replace(/%/g, '').substring(0, 8), 16);
+        return (+nameWeight + weight);
+    };
+
+    var app = new Vue({
+        el: '#app',
+        data: {
+            textCases: [],
+            rollCases: [],
+            isQrShow: false,
+            aplayer: null,
+            narrow: false,
+            autoplay: true,
+            showlrc: true,
+            mutex: true,
+            fold: false,
+            speed: 1,
+            theme: '#ad7a86',
+            mode: 'circulation',
+            preload: 'metadata',
+            listmaxheight: '400px',
+            music: []
+        },
+        created: function () {
+            var self = this;
+            axios.get('./data/cases.json').then(function (res) {
+                if (res && res.data) {
+                    let cases = res.data.cases;
+                    cases = cases.sort(function (a, b) {
+                        return calcWeight(b) - calcWeight(a);
+                    });
+                    self.rollCases = cases.filter(function (v) {
+                        return !!v.qrcode;
+                    });
+                    self.textCases = cases;
+                    Vue.nextTick(function () {
+                        var flkty = new Flickity('.carousel', {
+                            initialIndex: 0,
+                            cellAlign: 'left',
+                            autoPlay: true,
+                            pauseAutoPlayOnHover: true,
+                            autoPlay: 1500,
+                            pageDots: false,
+                            wrapAround: true
+                        });
+                    });
+                }
+            });
+
+            axios.get('./data/song.json').then(function (res) {
+                if (res && res.data) {
+                    let song = res.data.song;
+                    let newSongs = [];
+                    (song || []).forEach(function (s) {
+                        var s = {
+                            id: s.docID,
+                            title: s.songname,
+                            albumname: s.docID,
+                            author: s.singername,
+                            url: s.playurl,
+                            pic: s.picurl
+                        }
+                        newSongs.push(s)
+                    });
+
+                    self.music = newSongs
+                    console.log(newSongs)
+                }
+            });
+        },
+        mounted: function () {
+            this.aplayer = this.$refs.aplayer
+        },
+        methods: {
+            getLyricAsync: function () {
+
+                setTimeout(function () {
+                    this.music[0].lrc = '[by:Raidou]\n[by:raidou]\n[ti:本色]\n[ar:泠鸢yousa]\n[re:lrc-maker (https://weirongxu.github.io/lrc-maker/)]\n[ve:0.1.0]\n[length:05:14]\n[00:00.00] 作曲 : HTT\n[00:01.00] 作词 : 左耳以东\n[00:39.97]天生妩媚风流俏模样\n[00:43.72]偏嫁五尺短儿郎\n[00:46.48]谷树皮 三寸丁\n[00:47.98]夜夜空对 枉自结愁肠\n[00:52.73]生就娉婷袅娜好身段\n[00:55.97]若为娼 无妨\n[00:58.72]冠花街 压群芳\n[01:00.98]身无所拘 心无疆\n[01:42.98][03:41.34]娇莺应和啼婉转\n[01:45.48][03:44.02]金莲颤 青葱缠 享合欢\n[01:51.47][03:49.77]盈盈露滴湿牡丹\n[01:57.26][03:55.52]翩翩粉蝶暗偷香\n[02:03.51][04:01.52]倒浇红烛夜行船\n[02:06.76][04:05.27]鱼水同欢赴巫山\n[02:09.76][04:08.02]长睫倦 媚骨软 再贪欢\n[02:15.76][03:25.34][04:15.40][00:35.47][01:26.72]\n[02:39.19]鸿儒白丁正襟议伦常\n[02:42.19]酒阑横卧温柔乡\n[02:44.94]赏郑声 话高唐\n[02:46.94]男儿本色 矫饰冀流芳\n[02:50.69]未将妇德女戒正眼望\n[02:54.44]有缘人 放浪\n[02:57.19]千夫指 又何干？\n[02:59.19]休要辜负 好皮囊\n[03:02.69][01:04.23]斜阳含羞越花窗\n[03:05.69][01:06.98]浮云带怯偷眼望\n[03:08.69][01:09.98]美人微醺衣半敞\n[03:14.19][01:16.23]青丝半绾慵倚床\n[03:17.44][01:18.97]星眸初泛潋滟光\n[03:20.19][01:21.98]檀口轻启吐兰芳\n[03:26.09][01:27.23]金风玉露相逢晚\n[03:31.84][01:33.48]银盘斜偎乌云漫\n[03:37.84][01:39.47]轻拢慢捻挑抹忙\n[04:42.54]帐暖良宵短\n[04:45.79]天色忽已晚\n[04:48.99]忙着罗袜重整装\n[04:53.24]倚门回首 带笑含情央\n'
+                }, 2000)
+            },
+            wxEnter: function () {
+                this.isQrShow = true
+            },
+            modalClick: function () {
+                this.isQrShow = false
+            },
+            codeEnter: function (item, $evt) {
+                switch (item.id) {
+                    case 1: {
+                        item.style = 'z-index: 3; transform: scale(1) translate(-95%, 0%); transform-origin: 0% 0%; font-weight: 500;'
+                        break;
+                    }
+                    case 3: {
+                        item.style = 'z-index: 3; transform: scale(1) translate(120%, 0%); transform-origin: 100% 0%; font-weight: 500;'
+                        break;
+                    }
+                }
+            },
+            codeLeave: function (item) {
+                item.style = 'z-index: -1;'
+            }
+        }
+    });
+</script>
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?14c98a4c2ac48bfa7a4c6e9bf797d125";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+</body>
+</html>
