@@ -1167,8 +1167,9 @@ li.social-link a {
 }
 .slide.slide--features {
   position: relative;
-  top: -220px;
-  padding: 0 0 100px 0;
+  top: -350px;
+  /*padding: 0 0 100px 0;*/
+  margin: 0 0 -279px 0;
 }
 .slide.slide--features .slide__inner {
   width: 1080px;
