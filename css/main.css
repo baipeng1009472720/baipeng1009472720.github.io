@@ -378,6 +378,7 @@ a.logo {
   background-image: url(https://avatars0.githubusercontent.com/u/10417147?s=460&v=4);
   background-size: 52px;
   background-position: left;
+  border-radius: 50%;
 }
 .logo_text {
   margin: 2px 0 0 8px;
