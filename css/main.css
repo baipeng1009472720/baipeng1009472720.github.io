@@ -1471,6 +1471,7 @@ li.social-link a {
   width: 100%;
 }
 .examples__pr .button.button--pr {
+  vertical-align: initial;
   background: #1F9948;
   box-shadow: none;
   width: 80px;
